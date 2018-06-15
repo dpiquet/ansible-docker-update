@@ -1,0 +1,19 @@
+#
+# Docker image management
+#
+#
+
+---
+- hosts: localhost
+  tasks:
+    - name: login to private registry
+      docker_login:
+        registry_url: "{{ docker_registry_protocol }}://{{ docker_registry_hostname }}"
+        username: "{{ docker_registry_username }}"
+        password: "{{ docker_registry_password }}"
+
+    - name: pull docker image
+      docker_image:
+        name: "{{ docker_registry_hostname }}/{{ docker_image_name }}"
+        tag: "{{ docker_image_tag }}"
+

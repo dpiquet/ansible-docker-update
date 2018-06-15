@@ -1,0 +1,9 @@
+
+[all:vars]
+
+docker_registry_protocol=http
+docker_registry_hostname=hub.docker.com
+docker_registry_username=registry_username
+docker_registry_password=registry_password
+docker_image_name=docker_image_name
+docker_image_tag=latest
