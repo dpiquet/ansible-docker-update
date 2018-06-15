@@ -1,0 +1,5 @@
+- name: update docker service
+  hosts: all
+  tasks:
+    - name: update service
+      command: "docker service update --update-order start-first --image {{ docker_image_name }}:{{ docker_image_tag }} {{ docker_service_name }}"
