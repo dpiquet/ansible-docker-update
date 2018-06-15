@@ -3,8 +3,8 @@
 #
 #
 
----
-- hosts: localhost
+- name: update docker image
+  hosts: all
   tasks:
     - name: login to private registry
       docker_login:
@@ -12,8 +12,8 @@
         username: "{{ docker_registry_username }}"
         password: "{{ docker_registry_password }}"
 
-    - name: pull docker image
-      docker_image:
-        name: "{{ docker_registry_hostname }}/{{ docker_image_name }}"
-        tag: "{{ docker_image_tag }}"
+     - name: pull docker image
+       docker_image:
+         name: "{{ docker_registry_hostname }}/{{ docker_image_name }}"
+         tag: "{{ docker_image_tag }}"
 
